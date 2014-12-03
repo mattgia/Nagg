@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/pic"
+    android:background="#ff000000"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Please Sign In"
+        android:id="@+id/textView4"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:textColor="#ffffffff"
+        android:textSize="30dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_marginTop="51dp"
+        android:minWidth="500px"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:hint="username"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:layout_below="@+id/editText"
+        android:layout_alignStart="@+id/editText"
+        android:layout_marginTop="15dp"
+        android:minWidth="500px"
+        android:layout_alignEnd="@+id/editText"
+        android:hint="password"/>
+
+    <ImageButton
+        android:layout_width="700px"
+        android:layout_height="170px"
+        android:id="@+id/google"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/goog"
+        android:layout_below="@+id/editText2"
+        android:layout_centerHorizontal="true"
+        android:clickable="true" />
+
+    <ImageButton
+        android:layout_width="700px"
+        android:layout_height="170px"
+        android:id="@+id/facebook"
+        android:layout_below="@+id/google"
+        android:layout_alignStart="@+id/google"
+        android:layout_marginTop="20dp"
+        android:layout_alignEnd="@+id/google"
+        android:background="@drawable/facebook"
+        android:clickable="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="OR"
+        android:id="@+id/textView3"
+        android:layout_marginTop="20dp"
+        android:textSize="30dp"
+        android:layout_below="@+id/facebook"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="500px"
+        android:layout_height="150px"
+        android:id="@+id/imageButton3"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/signup"
+        android:clickable="true" />
+</RelativeLayout>
