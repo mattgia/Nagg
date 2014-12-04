@@ -2,10 +2,15 @@ package com.eecswork.matthew.nagg;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.*;
 
 
 /**
@@ -17,6 +22,10 @@ public class Fragment_Zero extends Fragment {
      * fragment.
      */
     private static final String ARG_SECTION_NUMBER = "section_number";
+
+    private static ListView listView;
+    private static MyArrayAdapter adapter;
+    private ArrayList<Event> contents = new ArrayList<Event>();
 
     /**
      * Returns a new instance of this fragment for the given section
@@ -39,9 +48,39 @@ public class Fragment_Zero extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_zero, container, false);
 
 
-        //View v = this.getView();
-        //Button b = (Button) v.findViewById(R.id.addButton);
+        //View v = getView();
+        Button b = (Button) rootView.findViewById(R.id.addButton);
+        listView = (ListView) rootView.findViewById(R.id.important_list);
+
+        contents.add(new Event(new Date(2014,6,2), new Time(), "UNO", 10));
+        contents.add(new Event(new Date(2014,6,2), new Time(), "UNO", 10));
+        contents.add(new Event(new Date(2014,6,2), new Time(), "UNO", 10));
+        contents.add(new Event(new Date(2014,6,2), new Time(), "UNO", 10));
+        contents.add(new Event(new Date(2014,6,2), new Time(), "UNO", 10));
+        contents.add(new Event(new Date(2014,6,2), new Time(), "UNO", 10));
+        contents.add(new Event(new Date(2014,6,2), new Time(), "UNO", 10));
+        contents.add(new Event(new Date(2014,6,2), new Time(), "UNO", 10));
+        contents.add(new Event(new Date(2014,6,2), new Time(), "UNO", 10));
+
+        adapter = new MyArrayAdapter(rootView.getContext(),R.layout.row, contents );
+        listView.setAdapter(adapter);
+
+
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
+
+
+
+
+
 
         return rootView;
     }
+
 }

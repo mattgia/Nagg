@@ -5,7 +5,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity$PlaceholderFragment"
-    >
+    android:focusable="true"
+    android:id="@+id/zero_layout">
 
 
     <Button
@@ -19,9 +20,10 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
+        android:id="@+id/important_list"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:background="#82534f55"
-        android:clickable="true" />
+        android:clickable="true"
+        android:dividerHeight="10sp"
+        android:divider="#00000000"/>
 </RelativeLayout>
