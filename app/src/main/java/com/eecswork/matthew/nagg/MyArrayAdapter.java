@@ -37,11 +37,12 @@ public class MyArrayAdapter extends ArrayAdapter<Event> {
             TextView desc = (TextView) itemView.findViewById(R.id.Description);
             TextView info = (TextView) itemView.findViewById(R.id.additionalInfo);
 
-
-            for(int i = 0; i < getCount(); i++)
-            {
-             System.out.println(getItem(i).getTitle());
+            /*
+            for(int i = 0; i < getCount(); i++) {
+                System.out.println(getItem(i).getTitle());
             }
+            */
+
             int day = getItem(position).getDueDate().getDay();
             int month = getItem(position).getDueDate().getMonth();
             String string_month = null;
@@ -84,18 +85,14 @@ public class MyArrayAdapter extends ArrayAdapter<Event> {
                     string_month = "DEC";
                     break;
                 default:
-                       string_month = ""; //Pre-emptive NullPointerException fixer
+                    string_month = ""; //Pre-emptive NullPointerException fixer
             }
 
             date.setText(day + "\n" + string_month);
 
             desc.setText(getItem(position).getTitle());
             info.setText("due at: " + getItem(position).getDueTime() );
-
         }
-
-
-
 
         return itemView;
        // return super.getView(position, convertView, parent);

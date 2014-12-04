@@ -47,14 +47,11 @@ public class Fragment_Zero extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_zero, container, false);
 
-
         //View v = getView();
         Button b = (Button) rootView.findViewById(R.id.addButton);
         listView = (ListView) rootView.findViewById(R.id.important_list);
 
-        contents.add(new Event(new Date(2014,6,2), "11:59", "UNO", 10));
-
-
+        //contents.add(new Event(new Date(2014,6,2), "11:59", "UNO", 10));
 
         adapter = new MyArrayAdapter(rootView.getContext(),R.layout.row, contents );
         listView.setAdapter(adapter);
@@ -64,18 +61,11 @@ public class Fragment_Zero extends Fragment {
             @Override
             public void onClick(View v) {
 
-                adapter.add(new Event(new Date(2014,6,2), "11:59", "PENIS PENIS", 10));
+                //adapter.add(new Event(new Date(2014,6,2), "11:59", "PENIS PENIS", 10));
                 adapter.notifyDataSetChanged();
 
             }
         });
-
-
-
-
-
-
-
 
         return rootView;
     }
