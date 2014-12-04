@@ -48,28 +48,42 @@ public class MyArrayAdapter extends ArrayAdapter<Event> {
             switch(month) {
                 case 1:
                     string_month = "JAN";
+                    break;
                 case 2:
                     string_month = "FEB";
+                    break;
                 case 3:
                     string_month = "MAR";
+                    break;
                 case 4:
                     string_month = "APR";
+                    break;
                 case 5:
                     string_month = "MAY";
+                    break;
                 case 6:
                     string_month = "JUN";
+                    break;
                 case 7:
                     string_month = "JUL";
+                    break;
                 case 8:
                     string_month = "AUG";
+                    break;
                 case 9:
                     string_month = "SEPT";
+                    break;
                 case 10:
                     string_month = "OCT";
+                    break;
                 case 11:
                     string_month = "NOV";
+                    break;
                 case 12:
                     string_month = "DEC";
+                    break;
+                default:
+                       string_month = ""; //Pre-emptive NullPointerException fixer
             }
 
             date.setText(day + "\n" + string_month);
