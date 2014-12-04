@@ -4,10 +4,12 @@ import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.format.Time;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.PopupWindow;
@@ -65,8 +67,10 @@ public class Fragment_Zero extends Fragment {
 
                 //adapter.add(new Event(new Date(2014,6,2), "11:59", "PENIS PENIS", 10));
                 LayoutInflater inflater = (LayoutInflater) rootView.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                WindowManager wm = (WindowManager) rootView.getContext().getSystemService(Context.WINDOW_SERVICE);
+                Display disp = wm.getDefaultDisplay();
 
-                PopupWindow pw = new PopupWindow(inflater.inflate(R.layout.hover_window, null, false),500,500, true);
+                PopupWindow pw = new PopupWindow(inflater.inflate(R.layout.hover_window, null, false),disp.getWidth()-160,disp.getHeight()-300, true);
                 pw.showAtLocation(rootView.findViewById(R.id.important_list), Gravity.CENTER, 0, 0);
 
 
