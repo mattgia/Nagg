@@ -44,7 +44,6 @@ public class MyArrayAdapter extends ArrayAdapter<Event> {
             int month = events.get(position).getDueDate().getMonth();
             String string_month = null;
 
-
             switch(month) {
                 case 1:
                     string_month = "JAN";
@@ -71,7 +70,7 @@ public class MyArrayAdapter extends ArrayAdapter<Event> {
                     string_month = "AUG";
                     break;
                 case 9:
-                    string_month = "SEPT";
+                    string_month = "SEP";
                     break;
                 case 10:
                     string_month = "OCT";
@@ -98,5 +97,8 @@ public class MyArrayAdapter extends ArrayAdapter<Event> {
 
         return itemView;
        // return super.getView(position, convertView, parent);
+    }
+    public void setListData(ArrayList<Event> data) {
+        events = data;
     }
 }

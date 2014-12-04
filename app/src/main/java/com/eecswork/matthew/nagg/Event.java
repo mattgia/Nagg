@@ -49,8 +49,8 @@ public class Event {
     public Event(Date d, String t, String s, int p)
     {
         dueDate = d;
-        dueTime = t;
-        title = s;
+        dueTime = new String (t);
+        title = new String (s);
         priority = p;
     }
 
