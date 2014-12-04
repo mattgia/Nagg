@@ -4,6 +4,7 @@ ehthumbs.db
 
 # Folder config file
 Desktop.ini
+local.properties
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
@@ -13,6 +14,11 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+
+# Android Studio
+.idea
+.gradle
+build/
 
 # =========================
 # Operating System Files
