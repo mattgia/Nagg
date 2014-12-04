@@ -25,7 +25,7 @@ public class MyArrayAdapter extends ArrayAdapter<Event> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-           System.out.println(position);
+        //System.out.println(position);
         View itemView = convertView;
         //make sure we have a view to work with
         if(true)
