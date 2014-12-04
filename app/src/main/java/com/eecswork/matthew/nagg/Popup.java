@@ -1,6 +1,12 @@
 package com.eecswork.matthew.nagg;
 
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.TimePickerDialog;
 import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.text.format.DateFormat;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -9,11 +15,14 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.TimePicker;
+
+import java.util.Calendar;
 
 /**
  * Created by Matthew on 12/4/2014.
  */
-public class Popup {
+public class Popup extends FragmentActivity {
 
 
     TextView date;
@@ -62,7 +71,7 @@ public class Popup {
             @Override
             public void onClick(View v) {
 
-                //open dialog to ask for time
+                showTimePickerDialog(v);
             }
         });
 
@@ -74,13 +83,34 @@ public class Popup {
             }
         });
 
-
-
-
-
     }
     public void finish()
     {
         pw.dismiss();
+    }
+
+    public void showTimePickerDialog(View v) {
+        DialogFragment newFragment = new TimePickerMenu();
+        newFragment.show(getFragmentManager(), "timePicker");
+    }
+
+    public static class TimePickerMenu extends DialogFragment
+            implements TimePickerDialog.OnTimeSetListener {
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the current time as the default values for the picker
+            final Calendar c = Calendar.getInstance();
+            int hour = c.get(Calendar.HOUR_OF_DAY);
+            int minute = c.get(Calendar.MINUTE);
+
+            // Create a new instance of TimePickerDialog and return it
+            return new TimePickerDialog(getActivity(), this, hour, minute,
+                    DateFormat.is24HourFormat(getActivity()));
+        }
+
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            // Return to parent instance.
+        }
     }
 }
