@@ -52,15 +52,17 @@ public class Fragment_Zero extends Fragment {
         Button b = (Button) rootView.findViewById(R.id.addButton);
         listView = (ListView) rootView.findViewById(R.id.important_list);
 
-        contents.add(new Event(new Date(2014,6,2), new Time(), "UNO", 10));
-        contents.add(new Event(new Date(2014,6,2), new Time(), "UNO", 10));
-        contents.add(new Event(new Date(2014,6,2), new Time(), "UNO", 10));
-        contents.add(new Event(new Date(2014,6,2), new Time(), "UNO", 10));
-        contents.add(new Event(new Date(2014,6,2), new Time(), "UNO", 10));
-        contents.add(new Event(new Date(2014,6,2), new Time(), "UNO", 10));
-        contents.add(new Event(new Date(2014,6,2), new Time(), "UNO", 10));
-        contents.add(new Event(new Date(2014,6,2), new Time(), "UNO", 10));
-        contents.add(new Event(new Date(2014,6,2), new Time(), "UNO", 10));
+        contents.add(new Event(new Date(2014,6,2), "11:59", "UNO", 10));
+        contents.add(new Event(new Date(2014,6,2), "11:59", "UNO", 10));
+        contents.add(new Event(new Date(2014,6,2), "11:59", "UNO", 10));
+        contents.add(new Event(new Date(2014,6,2), "11:59", "UNO", 10));
+        contents.add(new Event(new Date(2014,6,2), "11:59", "UNO", 10));
+        contents.add(new Event(new Date(2014,6,2), "11:59", "UNO", 10));
+        contents.add(new Event(new Date(2014,6,2), "11:59", "UNO", 10));
+        contents.add(new Event(new Date(2014,6,2), "11:59", "UNO", 10));
+        contents.add(new Event(new Date(2014,6,2), "11:59", "UNO", 10));
+        contents.add(new Event(new Date(2014,6,2), "11:59", "UNO", 10));
+
 
         adapter = new MyArrayAdapter(rootView.getContext(),R.layout.row, contents );
         listView.setAdapter(adapter);
@@ -69,6 +71,7 @@ public class Fragment_Zero extends Fragment {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                contents.add(new Event(new Date(2014,6,2), "11:59", "UNO", 10));
 
             }
         });

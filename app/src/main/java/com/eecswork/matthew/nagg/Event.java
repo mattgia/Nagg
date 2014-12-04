@@ -17,11 +17,11 @@ public class Event {
         this.dueDate = dueDate;
     }
 
-    public Time getDueTime() {
+    public String getDueTime() {
         return dueTime;
     }
 
-    public void setDueTime(Time dueTime) {
+    public void setDueTime(String dueTime) {
         this.dueTime = dueTime;
     }
 
@@ -42,11 +42,11 @@ public class Event {
     }
 
     private Date dueDate;
-    private Time dueTime;
+    private String dueTime;
     private String title;
     private int priority;
 
-    public Event(Date d, Time t, String s, int p)
+    public Event(Date d, String t, String s, int p)
     {
         dueDate = d;
         dueTime = t;
