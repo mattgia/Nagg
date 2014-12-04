@@ -16,32 +16,34 @@ import java.util.*;
  */
 public class MyArrayAdapter extends ArrayAdapter<Event> {
 
-    private Context context;
-    private List<Event> events;
-    public MyArrayAdapter(Context c, int resource, List<Event> objects )
+    public MyArrayAdapter(Context c, int resource, ArrayList<Event> objects )
     {
         super(c, resource, objects);
-        context = c;
-        events = objects;
 
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+           System.out.println(position);
         View itemView = convertView;
         //make sure we have a view to work with
-        if(itemView == null)
+        if(true)
         {
-            LayoutInflater li = (LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
+            LayoutInflater li = (LayoutInflater) getContext().getSystemService( Context.LAYOUT_INFLATER_SERVICE );
             itemView = li.inflate(R.layout.row, parent, false);
 
             TextView date = (TextView) itemView.findViewById(R.id.daymonth);
             TextView desc = (TextView) itemView.findViewById(R.id.Description);
             TextView info = (TextView) itemView.findViewById(R.id.additionalInfo);
 
-            int day = events.get(position).getDueDate().getDay();
-            int month = events.get(position).getDueDate().getMonth();
+
+            for(int i = 0; i < getCount(); i++)
+            {
+             System.out.println(getItem(i).getTitle());
+            }
+            int day = getItem(position).getDueDate().getDay();
+            int month = getItem(position).getDueDate().getMonth();
             String string_month = null;
 
             switch(month) {
@@ -87,8 +89,8 @@ public class MyArrayAdapter extends ArrayAdapter<Event> {
 
             date.setText(day + "\n" + string_month);
 
-            desc.setText(events.get(position).getTitle());
-            info.setText("due at: " + events.get(position).getDueTime() );
+            desc.setText(getItem(position).getTitle());
+            info.setText("due at: " + getItem(position).getDueTime() );
 
         }
 
@@ -97,8 +99,5 @@ public class MyArrayAdapter extends ArrayAdapter<Event> {
 
         return itemView;
        // return super.getView(position, convertView, parent);
-    }
-    public void setListData(ArrayList<Event> data) {
-        events = data;
     }
 }
