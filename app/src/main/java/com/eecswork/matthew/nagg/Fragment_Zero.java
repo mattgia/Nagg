@@ -1,13 +1,16 @@
 package com.eecswork.matthew.nagg;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.format.Time;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import java.util.*;
@@ -45,13 +48,12 @@ public class Fragment_Zero extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_zero, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_zero, container, false);
 
         //View v = getView();
         Button b = (Button) rootView.findViewById(R.id.addButton);
         listView = (ListView) rootView.findViewById(R.id.important_list);
 
-        //contents.add(new Event(new Date(2014,6,2), "11:59", "UNO", 10));
 
         adapter = new MyArrayAdapter(rootView.getContext(),R.layout.row, contents );
         listView.setAdapter(adapter);
@@ -62,7 +64,16 @@ public class Fragment_Zero extends Fragment {
             public void onClick(View v) {
 
                 //adapter.add(new Event(new Date(2014,6,2), "11:59", "PENIS PENIS", 10));
+                LayoutInflater inflater = (LayoutInflater) rootView.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+                PopupWindow pw = new PopupWindow(inflater.inflate(R.layout.hover_window, null, false),500,500, true);
+                pw.showAtLocation(rootView.findViewById(R.id.important_list), Gravity.CENTER, 0, 0);
+
+
+
                 adapter.notifyDataSetChanged();
+
+
 
             }
         });
