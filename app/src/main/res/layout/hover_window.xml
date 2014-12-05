@@ -80,14 +80,23 @@
         android:layout_above="@+id/new_Date_Text"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="42dp"
-        android:hint="Title" />
+        android:hint="Description" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="OK"
         android:id="@+id/ok_button"
+        android:layout_toEndOf="@+id/new_Dif_Text"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="35dp" />
+        android:layout_alignEnd="@+id/new_Dif" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CANCEL"
+        android:id="@+id/cancel_butt"
+        android:layout_toStartOf="@+id/busybox"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
