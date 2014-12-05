@@ -11,6 +11,6 @@
     <string name="new_button">New Button</string>
     <string name="pick_time">Pick Time</string>
     <string name="pick_date">Pick Date</string>
-    <string name="pick_num">Pick a Number</string>
+    <string name="pick_num">Pick Priority</string>
 
 </resources>
