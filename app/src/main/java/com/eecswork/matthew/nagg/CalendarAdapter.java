@@ -23,35 +23,11 @@ public class CalendarAdapter extends ArrayAdapter<ScheduleObject> {
     public CalendarAdapter(Context c, int resource, ArrayList<ScheduleObject> objects )
     {
 
-
         super(c, resource, objects);
         data = objects;
 
 
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
-        this.add(new ScheduleObject());
+
 
     }
 
@@ -114,7 +90,7 @@ public class CalendarAdapter extends ArrayAdapter<ScheduleObject> {
             if(events != null) {
                 for (int i = 0; i < events.size(); i++) {
                     if (events.get(i).getPriority() > highestPriority.getPriority())
-                        highestPriority = events.get(i);
+                        highestPriority = new Event(events.get(i).getDueDate(),events.get(i).getDueTime(), events.get(i).getTitle(), events.get(i).getPriority());
                 }
             }
 
@@ -123,13 +99,15 @@ public class CalendarAdapter extends ArrayAdapter<ScheduleObject> {
 
 
                 for (int i = 0; i < x.size(); i++) {
-                    x.get(i).setDescription(highestPriority.getTitle());
+                    x.get(i).setDescription(new String(highestPriority.getTitle()));
                     x.get(i).setType(1);
                 }
             }
             //set the days where you are busy
             if(busy != null)
             {
+                System.out.println("hello");
+
                 for(int i = 0; i < busy.size(); i++)
                 {
                     String date = busy.get(i).getTime();
@@ -151,9 +129,11 @@ public class CalendarAdapter extends ArrayAdapter<ScheduleObject> {
 
                 }
             }
-
-
             super.notifyDataSetChanged();
+
         }
+        System.out.println("BYE");
+
+
     }
 }
