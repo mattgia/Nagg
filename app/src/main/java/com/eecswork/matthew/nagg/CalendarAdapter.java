@@ -45,12 +45,17 @@ public class CalendarAdapter extends ArrayAdapter<ScheduleObject> {
         TextView desc = (TextView) itemView.findViewById((R.id.calendar_desc));
 
         time.setText(position + ":00");
-        if( getItem(position).getDescription().length() > 0) {
+        if( getItem(position).getDescription().length() >  0&& getItem(position).getType() == 1) {
             desc.setText("Work on: " + getItem(position).getDescription());
         }
-        else {
+        else if(getItem(position).getDescription().length() > 0  && getItem(position).getType() == 2){
+
+            desc.setText("Busy with: " + getItem(position).getDescription() );
+        }
+        else
+        {
             itemView.setBackgroundColor(0xFFFFFFFF);
-            desc.setText("Nothing scheduled");
+            desc.setText("Nothing scheduled.");
         }
         if( getItem(position).getDescription().length() > 0) {
 
@@ -110,21 +115,48 @@ public class CalendarAdapter extends ArrayAdapter<ScheduleObject> {
 
                 for(int i = 0; i < busy.size(); i++)
                 {
-                    String date = busy.get(i).getTime();
 
-                    String start = date.split("to")[0].trim();
-                    String finish = date.split("to")[1].trim();
+                    Calendar c = Calendar.getInstance();
+                    int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+                    String weekDay = "unknown";
+                    if (2 == dayOfWeek) weekDay = "mon";
+                    else if (3 == dayOfWeek) weekDay = "tues";
+                    else if (4. == dayOfWeek) weekDay = "wed";
+                    else if (5. == dayOfWeek) weekDay = "thu";
+                    else if (6 == dayOfWeek) weekDay = "fri";
+                    else if (7 == dayOfWeek) weekDay = "sat";
+                    else if (1 == dayOfWeek) weekDay = "sun";
 
-                    String startHour = start.split(":")[0].trim();
-                    String finishHour = finish.split(":")[0].trim();
+                    weekDay = weekDay.toUpperCase();
 
-                    int zeStart = Integer.parseInt(startHour);
-                    int zeFinish = Integer.parseInt(finishHour);
-                    for(int j = zeStart; j < zeFinish; j++)
+                    ArrayList<String> temp = busy.get(i).getWeekdays();
+
+                    String weekDaysConcat = "";
+                    for(int l = 0; l < temp.size(); l++)
                     {
-                        String temp = busy.get(i).getDescription();
-                        x.get(j).setDescription(temp);
-                        x.get(j).setType(2);
+                        weekDaysConcat = weekDaysConcat + temp.get(l);
+                    }
+
+                    boolean currentWeekDay = weekDaysConcat.toUpperCase().matches(".*"+weekDay+".*");
+
+
+
+                    if(currentWeekDay) {
+                        String date = busy.get(i).getTime();
+
+                        String start = date.split("to")[0].trim();
+                        String finish = date.split("to")[1].trim();
+
+                        String startHour = start.split(":")[0].trim();
+                        String finishHour = finish.split(":")[0].trim();
+
+                        int zeStart = Integer.parseInt(startHour);
+                        int zeFinish = Integer.parseInt(finishHour);
+                        for (int j = zeStart; j < zeFinish; j++) {
+                            String aasdasda = busy.get(i).getDescription();
+                            x.get(j).setDescription(aasdasda);
+                            x.get(j).setType(2);
+                        }
                     }
 
                 }
