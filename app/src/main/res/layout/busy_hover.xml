@@ -43,43 +43,43 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Mon"
-            android:checked="false"
+            android:checked="true"
             android:id="@+id/busy_mon" />
         <CheckBox
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Tues"
-            android:checked="false"
+            android:checked="true"
             android:id="@+id/busy_tues" />
         <CheckBox
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Wed"
-            android:checked="false"
+            android:checked="true"
             android:id="@+id/busy_wed" />
         <CheckBox
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Thurs"
-            android:checked="false"
+            android:checked="true"
             android:id="@+id/busy_thurs" />
         <CheckBox
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Fri"
-            android:checked="false"
+            android:checked="true"
             android:id="@+id/busy_fri" />
         <CheckBox
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Sat"
-            android:checked="false"
+            android:checked="true"
             android:id="@+id/busy_sat" />
         <CheckBox
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Sun"
-            android:checked="false"
+            android:checked="true"
             android:id="@+id/busy_sun" />
 
     </LinearLayout>
@@ -91,7 +91,8 @@
         android:ems="10"
         android:id="@+id/busy_from"
         android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/busy_description" />
+        android:layout_toEndOf="@+id/busy_description"
+        android:hint="HH:MM"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -101,7 +102,8 @@
         android:layout_below="@+id/busy_from"
         android:layout_toEndOf="@+id/busy_description"
         android:layout_marginTop="52dp"
-        android:inputType="time" />
+        android:inputType="time"
+        android:hint="HH:MM"/>
 
     <TextView
         android:layout_width="wrap_content"

@@ -44,7 +44,8 @@
         android:text="Description"
         android:textSize="20sp"
         android:paddingLeft="15px"
-        android:textColor="#ff000000" />
+        android:textColor="#ff000000"
+        android:textStyle="italic" />
 
     <ImageButton
         android:layout_width="wrap_content"

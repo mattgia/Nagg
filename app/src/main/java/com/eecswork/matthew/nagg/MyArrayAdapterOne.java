@@ -47,7 +47,13 @@ public class MyArrayAdapterOne extends ArrayAdapter<BusyDays> {
 
             for(int i = 0; i < x.size(); i++)
             {
-                s = s + ", " + x.get(i);
+                if(s.length() == 0)
+                {
+                    s = x.get(i);
+                }
+                else {
+                    s = s + ", " + x.get(i);
+                }
             }
 
             weekdays.setText(s);

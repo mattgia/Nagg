@@ -24,17 +24,19 @@
         android:id="@+id/one_row_Description"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:textStyle="italic" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/one_row_Time"
-        android:layout_toEndOf="@+id/one_row_WeekDays"
+        android:layout_toEndOf="@+id/one_row_Description"
         android:textSize="20dp"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="43dp" />
+        android:layout_alignTop="@+id/one_row_Description"
+        android:paddingLeft="35px"/>
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -42,6 +44,7 @@
         android:text="New Text"
         android:id="@+id/one_row_WeekDays"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/one_row_Description" />
+        android:paddingLeft="100px"
+        android:textStyle="italic" />
 
 </RelativeLayout>
