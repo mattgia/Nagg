@@ -29,7 +29,7 @@ public class Fragment_One extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private static ListView listView;
-    public static MyArrayAdapter adapter;
+    public static MyArrayAdapterOne adapter;
     private ArrayList<Event> contents = new ArrayList<Event>();
 
     /**
@@ -57,7 +57,7 @@ public class Fragment_One extends Fragment {
         listView = (ListView) rootView.findViewById(R.id.one_important_list);
 
 
-        adapter = new MyArrayAdapter(rootView.getContext(),R.layout.row, contents );
+        adapter = new MyArrayAdapterOne(rootView.getContext(),R.layout.one_row, contents );
         listView.setAdapter(adapter);
 
 
