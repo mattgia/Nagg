@@ -65,7 +65,6 @@ public class Fragment_Zero extends Fragment {
             @Override
             public void onClick(View v) {
 
-                //adapter.add(new Event(new Date(2014,6,2), "11:59", "PENIS PENIS", 10));
 
                 Popup  p = new Popup(rootView);
 

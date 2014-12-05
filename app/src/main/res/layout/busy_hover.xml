@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#ff7d7d7d">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD EVENT"
+        android:id="@+id/textView5"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="74dp"
+        android:textSize="30dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pick_date"
+        android:id="@+id/one_new_Date"
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="98dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pick_time"
+        android:id="@+id/one_new_Time"
+        android:layout_below="@+id/one_new_Date"
+        android:layout_alignEnd="@+id/one_new_Date"
+        android:layout_marginTop="24dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pick_num"
+        android:id="@+id/one_new_Dif"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/one_new_Time"
+        android:layout_alignStart="@+id/one_new_Time" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:hint="MM/DD/YYYY"
+        android:id="@+id/one_new_Date_Text"
+        android:layout_alignBottom="@+id/one_new_Date"
+        android:layout_toStartOf="@+id/one_new_Date"
+        android:layout_marginRight="28dp"
+        android:inputType="date" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/one_new_Time_Text"
+        android:hint="HH:MM"
+
+        android:layout_alignBottom="@+id/one_new_Time"
+        android:layout_alignEnd="@+id/one_new_Date_Text"
+        android:inputType="time" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/one_new_Dif_Text"
+        android:hint="0-10"
+        android:layout_alignBottom="@+id/one_new_Dif"
+        android:layout_alignEnd="@+id/one_new_Time_Text"
+        android:inputType="number" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/one_new_Title"
+        android:layout_above="@+id/one_new_Date_Text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="42dp"
+        android:hint="Title" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:id="@+id/one_ok_button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="35dp" />
+</RelativeLayout>

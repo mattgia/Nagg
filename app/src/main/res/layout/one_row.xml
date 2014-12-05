@@ -1,0 +1,60 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="80dp"
+    android:padding="6dip"
+    android:paddingBottom="15px">
+
+    <TextView
+        android:id="@+id/daymonth"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="6dip"
+        android:contentDescription="TODO"
+        android:src="@drawable/ic_launcher"
+        android:text="12\n Nov"
+        android:textSize="28sp"
+        android:height="75px"
+        android:textColor="#FF000000" />
+
+    <TextView
+        android:id="@+id/additionalInfo"
+        android:layout_width="fill_parent"
+        android:layout_height="26dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/daymonth"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="Additional Info"
+        android:textSize="12sp"
+        android:paddingLeft="15px"
+        android:textColor="#FF000000" />
+
+    <TextView
+        android:id="@+id/Description"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/additionalInfo"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_toRightOf="@id/daymonth"
+        android:gravity="center_vertical"
+        android:text="Description"
+        android:textSize="20sp"
+        android:paddingLeft="15px"
+        android:textColor="#ff000000" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/trash"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/trash"
+        android:clickable="true"
+        android:maxHeight="20px"
+        android:maxWidth="20px"/>
+
+</RelativeLayout>

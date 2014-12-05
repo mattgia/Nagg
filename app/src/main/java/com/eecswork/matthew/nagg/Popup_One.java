@@ -23,32 +23,32 @@ import java.util.Date;
 /**
  * Created by Matthew on 12/4/2014.
  */
-public class Popup extends FragmentActivity {
+public class Popup_One extends FragmentActivity {
 
     TextView title;
     TextView date;
     TextView time;
     TextView dif;
     PopupWindow pw;
-    public Popup(View rootView)
+    public Popup_One(View rootView)
     {
         LayoutInflater inflater = (LayoutInflater) rootView.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         WindowManager wm = (WindowManager) rootView.getContext().getSystemService(Context.WINDOW_SERVICE);
         Display disp = wm.getDefaultDisplay();
 
-        pw = new PopupWindow(inflater.inflate(R.layout.hover_window, null, false),disp.getWidth()-160,disp.getHeight()-300, true);
-        pw.showAtLocation(rootView.findViewById(R.id.important_list), Gravity.CENTER, 0, 0);
+        pw = new PopupWindow(inflater.inflate(R.layout.busy_hover, null, false),disp.getWidth()-160,disp.getHeight()-300, true);
+        pw.showAtLocation(rootView.findViewById(R.id.one_important_list), Gravity.CENTER, 0, 0);
 
-        title =        ((TextView)pw.getContentView().findViewById(R.id.new_Title));
+        title =        ((TextView)pw.getContentView().findViewById(R.id.one_new_Title));
 
-        date =         ((TextView)pw.getContentView().findViewById(R.id.new_Date_Text));
+        date =         ((TextView)pw.getContentView().findViewById(R.id.one_new_Date_Text));
 
-        time =         ((TextView)pw.getContentView().findViewById(R.id.new_Time_Text));
+        time =         ((TextView)pw.getContentView().findViewById(R.id.one_new_Time_Text));
 
-        dif =         ((TextView)pw.getContentView().findViewById(R.id.new_Dif_Text));
+        dif =         ((TextView)pw.getContentView().findViewById(R.id.one_new_Dif_Text));
 
 
-        Button b = ((Button)pw.getContentView().findViewById(R.id.ok_button));
+        Button b = ((Button)pw.getContentView().findViewById(R.id.one_ok_button));
 
 
         b.setOnClickListener(new View.OnClickListener() {
@@ -58,9 +58,9 @@ public class Popup extends FragmentActivity {
             }
         });
 
-        Button date_b = ((Button)pw.getContentView().findViewById(R.id.new_Date));
-        Button time_b =((Button)pw.getContentView().findViewById(R.id.new_Time));
-        Button dif_b = ((Button)pw.getContentView().findViewById(R.id.new_Dif));
+        Button date_b = ((Button)pw.getContentView().findViewById(R.id.one_new_Date));
+        Button time_b =((Button)pw.getContentView().findViewById(R.id.one_new_Time));
+        Button dif_b = ((Button)pw.getContentView().findViewById(R.id.one_new_Dif));
 
         date_b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +92,7 @@ public class Popup extends FragmentActivity {
         if(dif.getText().toString().length() > 0 && title.getText().toString().length() > 0 && time.getText().toString().length() > 0) {
 
             String zeDate = date.getText().toString();
-            Fragment_Zero.adapter.add(new Event(zeDate, time.getText().toString(), title.getText().toString(), Integer.parseInt(dif.getText().toString())));
+            Fragment_One.adapter.add(new Event(zeDate, time.getText().toString(), title.getText().toString(), Integer.parseInt(dif.getText().toString())));
             pw.dismiss();
         }
     }

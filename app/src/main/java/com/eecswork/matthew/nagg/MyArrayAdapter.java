@@ -97,8 +97,12 @@ public class MyArrayAdapter extends ArrayAdapter<Event> {
 
 
             String nums[] = getItem(position).getDueDate().split("/");
-            int day = Integer.parseInt(nums[0]);
-            int month = Integer.parseInt(nums[1]);
+            int day = 1;
+            int month = 1;
+            if(nums.length >= 2) {
+                 day = Integer.parseInt(nums[0]);
+                 month = Integer.parseInt(nums[1]);
+            }
 
             String string_month = null;
 
