@@ -37,7 +37,7 @@ public class CalendarAdapter extends ArrayAdapter<Object> {
         TextView desc = (TextView) itemView.findViewById((R.id.calendar_desc));
 
         time.setText(position + ":00");
-        desc.setText("this is where the description goes");
+        desc.setText("Nothing Scheduled");
 
         return itemView;
 

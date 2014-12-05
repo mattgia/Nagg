@@ -130,11 +130,11 @@ public class SecondActivity extends Activity implements ActionBar.TabListener {
 
             switch (position) {
                 case 0:
-                    return Fragment_Zero.newInstance(position+1);
+                    return Fragment_Two.newInstance(position+1);
                 case 1:
-                    return Fragment_One.newInstance(position+1);
+                    return Fragment_Zero.newInstance(position+1);
                 case 2:
-                    return Fragment_Two.newInstance(position + 1);
+                    return Fragment_One.newInstance(position + 1);
 
 
             }
