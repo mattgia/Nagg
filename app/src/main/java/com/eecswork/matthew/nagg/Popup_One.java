@@ -130,7 +130,7 @@ public class Popup_One extends FragmentActivity {
             String daTime = start.getText().toString() + " to " + end.getText().toString();
 
 
-            Fragment_One.adapter.add(new BusyDays(desc.getText().toString(), x,daTime ));
+            Fragment_One.adapter.add(new BusyDays(desc.getText().toString().toUpperCase().toUpperCase(), x,daTime ));
             pw.dismiss();
         }
     }
