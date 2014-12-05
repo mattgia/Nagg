@@ -17,9 +17,16 @@ import java.util.*;
  */
 public class MyArrayAdapterOne extends ArrayAdapter<BusyDays> {
 
+    private ArrayList<BusyDays> data;
+
+    public ArrayList<BusyDays> getData() {
+        return data;
+    }
+
     public MyArrayAdapterOne(Context c, int resource, ArrayList<BusyDays> objects )
     {
         super(c, resource, objects);
+        data = objects;
 
     }
 
@@ -65,6 +72,7 @@ public class MyArrayAdapterOne extends ArrayAdapter<BusyDays> {
             public void onClick(View v) {
                 Fragment_One.adapter.remove(Fragment_One.adapter.getItem(position));
                 Fragment_One.adapter.notifyDataSetChanged();
+                Fragment_Two.adapter.notifyDataSetChanged();
 
             }
         });

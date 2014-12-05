@@ -58,32 +58,8 @@ public class Fragment_Two extends Fragment {
         else if (1 == dayOfWeek) weekDay = "sunday";
         t.setText(weekDay.toUpperCase());
 
-        adapter = new CalendarAdapter(rootView.getContext(),R.layout.calendar_row, new ArrayList<Object>());
+        adapter = new CalendarAdapter(rootView.getContext(),R.layout.calendar_row, new ArrayList<ScheduleObject>());
         listView.setAdapter(adapter);
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
-        adapter.add(new Object());
 
 
         return rootView;

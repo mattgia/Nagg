@@ -131,6 +131,7 @@ public class Popup_One extends FragmentActivity {
 
 
             Fragment_One.adapter.add(new BusyDays(desc.getText().toString().toUpperCase().toUpperCase(), x,daTime ));
+            Fragment_Two.adapter.notifyDataSetChanged();
             pw.dismiss();
         }
     }

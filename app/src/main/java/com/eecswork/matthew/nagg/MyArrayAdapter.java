@@ -17,9 +17,16 @@ import java.util.*;
  */
 public class MyArrayAdapter extends ArrayAdapter<Event> {
 
+    private ArrayList<Event> data;
+
+    public ArrayList<Event> getData() {
+        return data;
+    }
+
     public MyArrayAdapter(Context c, int resource, ArrayList<Event> objects )
     {
         super(c, resource, objects);
+        data = objects;
 
     }
 
@@ -46,6 +53,8 @@ public class MyArrayAdapter extends ArrayAdapter<Event> {
                 public void onClick(View v) {
                     Fragment_Zero.adapter.remove(Fragment_Zero.adapter.getItem(position));
                     Fragment_Zero.adapter.notifyDataSetChanged();
+                    Fragment_Two.adapter.notifyDataSetChanged();
+
 
                 }
             });
@@ -147,7 +156,7 @@ public class MyArrayAdapter extends ArrayAdapter<Event> {
                     string_month = ""; //Pre-emptive NullPointerException fixer
             }
 
-            System.out.println("day: " + day);
+            //System.out.println("day: " + day);
             date.setText(day + "\n" + string_month);
 
             desc.setText(getItem(position).getTitle());

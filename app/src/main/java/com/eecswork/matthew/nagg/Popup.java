@@ -101,6 +101,7 @@ public class Popup extends FragmentActivity {
 
             String zeDate = date.getText().toString();
             Fragment_Zero.adapter.add(new Event(zeDate, time.getText().toString(), title.getText().toString().toUpperCase(), Integer.parseInt(dif.getText().toString())));
+            Fragment_Two.adapter.notifyDataSetChanged();
             pw.dismiss();
         }
         else
