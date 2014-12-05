@@ -100,8 +100,8 @@ public class MyArrayAdapter extends ArrayAdapter<Event> {
             int day = 1;
             int month = 1;
             if(nums.length >= 2) {
-                 day = Integer.parseInt(nums[0]);
-                 month = Integer.parseInt(nums[1]);
+                 day = Integer.parseInt(nums[1]);
+                 month = Integer.parseInt(nums[0]);
             }
 
             String string_month = null;
