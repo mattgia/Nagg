@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -109,6 +110,10 @@ public class Popup extends FragmentActivity {
         try {
             //Going to need this later.
             String[] datTime = time.getText().toString().split(":");
+            boolean noMin = false;
+            //Since Matt wants the user to be able to just put "1"
+            if(datTime.length == 1 && Integer.parseInt(datTime[0]) >=0 && Integer.parseInt(datTime[0]) < 24)
+                noMin = true;
             //This as well
             String[] datDate = date.getText().toString().split("/");
 
@@ -116,7 +121,7 @@ public class Popup extends FragmentActivity {
             if (Integer.parseInt(dif.getText().toString()) > 0 && Integer.parseInt(dif.getText().toString()) < 11) {
                 //Makes sure the title is at least length 1.
                 if (title.getText().toString().length() > 0) {
-                    if (Integer.parseInt(datTime[0]) < 24 && Integer.parseInt(datTime[0]) >= 0 && Integer.parseInt(datTime[1]) < 60 && Integer.parseInt(datTime[1]) >= 0) {
+                    if (noMin || (Integer.parseInt(datTime[0]) < 24 && Integer.parseInt(datTime[0]) >= 0 && Integer.parseInt(datTime[1]) < 60 && Integer.parseInt(datTime[1]) >= 0)) {
                         //Don't need to check year I think
                         if (Integer.parseInt(datDate[0]) > 0 && Integer.parseInt(datDate[0]) <= 12 && Integer.parseInt(datDate[1]) > 0 && Integer.parseInt(datDate[1]) <= 31) {
                             return true;
