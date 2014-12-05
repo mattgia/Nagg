@@ -37,7 +37,7 @@ public class Popup_One extends FragmentActivity {
         pw.showAtLocation(rootView.findViewById(R.id.one_important_list), Gravity.CENTER, 0, 0);
 
 
-        Button b = ((Button) pw.getContentView().findViewById(R.id.one_ok_button));
+        Button b = ((Button) pw.getContentView().findViewById(R.id.busy_ok_button));
 
 
         b.setOnClickListener(new View.OnClickListener() {
