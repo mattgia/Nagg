@@ -90,7 +90,9 @@ public class Popup extends FragmentActivity {
     public void finish()
     {
         if(dif.getText().toString().length() > 0) {
-            Fragment_Zero.adapter.add(new Event(new Date(10, 10, 2010), time.getText().toString(), title.getText().toString(), Integer.parseInt(dif.getText().toString())));
+
+            String zeDate = date.getText().toString();
+            Fragment_Zero.adapter.add(new Event(zeDate, time.getText().toString(), title.getText().toString(), Integer.parseInt(dif.getText().toString())));
             pw.dismiss();
         }
     }

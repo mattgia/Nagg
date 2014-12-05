@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:hint="DD/MM/YYYY"
+        android:hint="MM/DD/YYYY"
         android:id="@+id/new_Date_Text"
         android:layout_alignBottom="@+id/new_Date"
         android:layout_toStartOf="@+id/new_Date"

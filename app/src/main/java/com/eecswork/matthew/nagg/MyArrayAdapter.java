@@ -95,8 +95,11 @@ public class MyArrayAdapter extends ArrayAdapter<Event> {
             }
             */
 
-            int day = getItem(position).getDueDate().getDay();
-            int month = getItem(position).getDueDate().getMonth();
+
+            String nums[] = getItem(position).getDueDate().split("/");
+            int day = Integer.parseInt(nums[0]);
+            int month = Integer.parseInt(nums[1]);
+
             String string_month = null;
 
             switch(month) {
@@ -140,6 +143,7 @@ public class MyArrayAdapter extends ArrayAdapter<Event> {
                     string_month = ""; //Pre-emptive NullPointerException fixer
             }
 
+            System.out.println("day: " + day);
             date.setText(day + "\n" + string_month);
 
             desc.setText(getItem(position).getTitle());

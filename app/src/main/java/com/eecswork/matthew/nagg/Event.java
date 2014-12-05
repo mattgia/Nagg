@@ -9,11 +9,11 @@ import java.util.Date;
  */
 public class Event {
 
-    public Date getDueDate() {
+    public String getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Date dueDate) {
+    public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
 
@@ -41,12 +41,12 @@ public class Event {
         this.priority = priority;
     }
 
-    private Date dueDate;
+    private String dueDate;
     private String dueTime;
     private String title;
     private int priority;
 
-    public Event(Date d, String t, String s, int p)
+    public Event(String d, String t, String s, int p)
     {
         dueDate = d;
         dueTime = new String (t);
