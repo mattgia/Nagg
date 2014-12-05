@@ -29,7 +29,7 @@ public class Fragment_Zero extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private static ListView listView;
-    private static MyArrayAdapter adapter;
+    public static MyArrayAdapter adapter;
     private ArrayList<Event> contents = new ArrayList<Event>();
 
     /**
@@ -70,7 +70,7 @@ public class Fragment_Zero extends Fragment {
                 Popup  p = new Popup(rootView);
 
 
-                adapter.notifyDataSetChanged();
+                //adapter.notifyDataSetChanged();
 
 
 

@@ -3,8 +3,8 @@
 
     <string name="app_name">Nagg</string>
     <string name="title_section1">Add Events</string>
-    <string name="title_section2">Something Else</string>
-    <string name="title_section3">Shit to do</string>
+    <string name="title_section2">Busy Time</string>
+    <string name="title_section3">Today\'s Schedule</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 

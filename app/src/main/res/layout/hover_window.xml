@@ -41,33 +41,37 @@
         android:layout_below="@+id/new_Time"
         android:layout_alignStart="@+id/new_Time" />
 
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
+        android:hint="DD/MM/YYYY"
         android:id="@+id/new_Date_Text"
         android:layout_alignBottom="@+id/new_Date"
         android:layout_toStartOf="@+id/new_Date"
-        android:layout_marginRight="28dp" />
+        android:layout_marginRight="28dp"
+        android:inputType="date" />
 
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
         android:id="@+id/new_Time_Text"
-        android:layout_alignBottom="@+id/new_Time"
-        android:layout_alignEnd="@+id/new_Date_Text" />
+        android:hint="HH:MM"
 
-    <TextView
+        android:layout_alignBottom="@+id/new_Time"
+        android:layout_alignEnd="@+id/new_Date_Text"
+        android:inputType="time" />
+
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
         android:id="@+id/new_Dif_Text"
+        android:hint="0-10"
         android:layout_alignBottom="@+id/new_Dif"
-        android:layout_alignEnd="@+id/new_Time_Text" />
+        android:layout_alignEnd="@+id/new_Time_Text"
+        android:inputType="number" />
 
     <EditText
         android:layout_width="wrap_content"

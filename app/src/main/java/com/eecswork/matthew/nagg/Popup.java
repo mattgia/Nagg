@@ -18,13 +18,14 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Matthew on 12/4/2014.
  */
 public class Popup extends FragmentActivity {
 
-
+    TextView title;
     TextView date;
     TextView time;
     TextView dif;
@@ -37,6 +38,8 @@ public class Popup extends FragmentActivity {
 
         pw = new PopupWindow(inflater.inflate(R.layout.hover_window, null, false),disp.getWidth()-160,disp.getHeight()-300, true);
         pw.showAtLocation(rootView.findViewById(R.id.important_list), Gravity.CENTER, 0, 0);
+
+        title =        ((TextView)pw.getContentView().findViewById(R.id.new_Title));
 
         date =         ((TextView)pw.getContentView().findViewById(R.id.new_Date_Text));
 
@@ -71,7 +74,7 @@ public class Popup extends FragmentActivity {
             @Override
             public void onClick(View v) {
 
-                showTimePickerDialog(v);
+                //showTimePickerDialog(v);
             }
         });
 
@@ -86,7 +89,10 @@ public class Popup extends FragmentActivity {
     }
     public void finish()
     {
-        pw.dismiss();
+        if(dif.getText().toString().length() > 0) {
+            Fragment_Zero.adapter.add(new Event(new Date(10, 10, 2010), time.getText().toString(), title.getText().toString(), Integer.parseInt(dif.getText().toString())));
+            pw.dismiss();
+        }
     }
 
     public void showTimePickerDialog(View v) {
