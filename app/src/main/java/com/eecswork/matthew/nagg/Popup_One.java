@@ -38,12 +38,22 @@ public class Popup_One extends FragmentActivity {
 
 
         Button b = ((Button) pw.getContentView().findViewById(R.id.busy_ok_button));
+        Button c = ((Button) pw.getContentView().findViewById(R.id.busy_cancel));
+
 
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+
+        c.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pw.dismiss();
             }
         });
 
