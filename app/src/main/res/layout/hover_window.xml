@@ -7,7 +7,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ADD EVENT"
-        android:id="@+id/textView5"
+        android:id="@+id/busybox"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="74dp"
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:text="@string/pick_date"
         android:id="@+id/new_Date"
-        android:layout_below="@+id/textView5"
+        android:layout_below="@+id/busybox"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="48dp"
         android:layout_marginTop="98dp" />

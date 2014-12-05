@@ -30,7 +30,7 @@ public class Fragment_One extends Fragment {
 
     private static ListView listView;
     public static MyArrayAdapterOne adapter;
-    private ArrayList<Event> contents = new ArrayList<Event>();
+    private ArrayList<BusyDays> contents = new ArrayList<BusyDays>();
 
     /**
      * Returns a new instance of this fragment for the given section

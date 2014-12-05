@@ -2,14 +2,14 @@
     android:layout_width="fill_parent"
     android:layout_height="80dp"
     android:padding="6dip"
-    android:paddingBottom="1px"
+    android:paddingBottom="15px"
     android:background="#7b0061ff">
 
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/trash"
+        android:id="@+id/one_trash"
         android:layout_centerVertical="true"
         android:layout_alignParentEnd="true"
         android:background="@drawable/trash"
