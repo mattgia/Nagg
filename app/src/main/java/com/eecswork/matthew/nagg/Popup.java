@@ -89,7 +89,6 @@ public class Popup extends FragmentActivity {
         time_b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 //showTimePickerDialog(v);
             }
         });
@@ -142,10 +141,6 @@ public class Popup extends FragmentActivity {
                 //Makes sure the title is at least length 1.
                 if (title.getText().toString().length() > 0) {
                     if (noMin || (Integer.parseInt(datTime[0]) < 24 && Integer.parseInt(datTime[0]) >= 0 && Integer.parseInt(datTime[1]) < 60 && Integer.parseInt(datTime[1]) >= 0)) {
-                        //Don't need to check year I think
-                        if (Integer.parseInt(datDate[0]) > 0 && Integer.parseInt(datDate[0]) <= 12 && Integer.parseInt(datDate[1]) > 0 && Integer.parseInt(datDate[1]) <= 31) {
-                            return true;
-                        }
                     }
                 }
             }
@@ -191,12 +186,11 @@ public class Popup extends FragmentActivity {
             int mYear = year;
             int mMonth = monthOfYear;
             int mDay = dayOfMonth;
-            /*this.setText(new StringBuilder()
+            date.setText(new StringBuilder()
                     // Month is 0 based so add 1
                     .append(mMonth + 1).append("/").append(mDay).append("/")
                     .append(mYear).append(" "));
-            System.out.println(v.getText().toString());
-*/
+
 
         }
     }
