@@ -13,11 +13,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-
+import android.app.DatePickerDialog;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -75,6 +76,13 @@ public class Popup extends FragmentActivity {
             public void onClick(View v) {
 
                 //open dialog to ask for date
+                Calendar c = Calendar.getInstance();
+                int mYear = c.get(Calendar.YEAR);
+                int mMonth = c.get(Calendar.MONTH);
+                int mDay = c.get(Calendar.DAY_OF_MONTH);
+               // System.out.println("the selected " + mDay);
+                DatePickerDialog dialog = new DatePickerDialog(v.getContext(),new mDateSetListener(), mYear, mMonth, mDay);
+                dialog.show();
             }
         });
 
@@ -171,6 +179,25 @@ public class Popup extends FragmentActivity {
 
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             // Return to parent instance.
+        }
+    }
+    class mDateSetListener implements DatePickerDialog.OnDateSetListener {
+
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear,
+                              int dayOfMonth) {
+            // TODO Auto-generated method stub
+            // getCalender();
+            int mYear = year;
+            int mMonth = monthOfYear;
+            int mDay = dayOfMonth;
+            /*this.setText(new StringBuilder()
+                    // Month is 0 based so add 1
+                    .append(mMonth + 1).append("/").append(mDay).append("/")
+                    .append(mYear).append(" "));
+            System.out.println(v.getText().toString());
+*/
+
         }
     }
 }
