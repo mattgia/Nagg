@@ -34,6 +34,10 @@ public class Popup extends FragmentActivity {
     PopupWindow pw;
     public Popup(View rootView)
     {
+
+
+
+
         LayoutInflater inflater = (LayoutInflater) rootView.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         WindowManager wm = (WindowManager) rootView.getContext().getSystemService(Context.WINDOW_SERVICE);
         Display disp = wm.getDefaultDisplay();
@@ -74,12 +78,11 @@ public class Popup extends FragmentActivity {
         date_b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Calendar cal = Calendar.getInstance();
                 //open dialog to ask for date
-                Calendar c = Calendar.getInstance();
-                int mYear = c.get(Calendar.YEAR);
-                int mMonth = c.get(Calendar.MONTH);
-                int mDay = c.get(Calendar.DAY_OF_MONTH);
+                int mYear = cal.get(Calendar.YEAR);
+                int mMonth = cal.get(Calendar.MONTH);
+                int mDay = cal.get(Calendar.DAY_OF_MONTH);
                // System.out.println("the selected " + mDay);
                 DatePickerDialog dialog = new DatePickerDialog(v.getContext(),new mDateSetListener(), mYear, mMonth, mDay);
                 dialog.show();
@@ -89,7 +92,12 @@ public class Popup extends FragmentActivity {
         time_b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Calendar cal = Calendar.getInstance();
+                int hour = cal.get(Calendar.HOUR);
+                int minute = cal.get(Calendar.MINUTE);
                 //showTimePickerDialog(v);
+                TimePickerDialog dialog = new TimePickerDialog(v.getContext(), new mTimeListener(),hour,minute, false);
+                dialog.show();
             }
         });
 
@@ -140,8 +148,8 @@ public class Popup extends FragmentActivity {
             if (Integer.parseInt(dif.getText().toString()) > 0 && Integer.parseInt(dif.getText().toString()) < 11) {
                 //Makes sure the title is at least length 1.
                 if (title.getText().toString().length() > 0) {
-                    if (noMin || (Integer.parseInt(datTime[0]) < 24 && Integer.parseInt(datTime[0]) >= 0 && Integer.parseInt(datTime[1]) < 60 && Integer.parseInt(datTime[1]) >= 0)) {
-                    }
+                  //  if (noMin || (Integer.parseInt(datTime[0]) < 24 && Integer.parseInt(datTime[0]) >= 0 && Integer.parseInt(datTime[1]) < 60 && Integer.parseInt(datTime[1]) >= 0)) {
+                   // }
                 }
             }
             return false;
@@ -188,10 +196,23 @@ public class Popup extends FragmentActivity {
             int mDay = dayOfMonth;
             date.setText(new StringBuilder()
                     // Month is 0 based so add 1
-                    .append(mMonth + 1).append("/").append(mDay).append("/")
+                    .append(mDay).append("/").append(mMonth + 1).append("/")
                     .append(mYear).append(" "));
 
 
+        }
+    }
+    class mTimeListener implements TimePickerDialog.OnTimeSetListener {
+
+
+
+        @Override
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            int mhour = hourOfDay;
+            int mminute = minute;
+            time.setText(
+                    new StringBuilder().append(mhour)
+                            .append(":").append(mminute));
         }
     }
 }
