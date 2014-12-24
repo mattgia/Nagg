@@ -24,6 +24,7 @@ import java.util.Date;
 
 /**
  * Created by Matthew on 12/4/2014.
+ * Edited by aditya on 24-Dec-2014
  */
 public class Popup extends FragmentActivity {
 
@@ -119,17 +120,17 @@ public class Popup extends FragmentActivity {
             Fragment_Two.adapter.notifyDataSetChanged();
             pw.dismiss();
         }
-        else
-        {
-            /*
+         /* else
+       {
+
             Context context = Popup.this;
             CharSequence text = "Hello toast!";
             int duration = Toast.LENGTH_SHORT;
 
             Toast toast = Toast.makeText(Popup.this, text, duration);
             toast.show();
-            */
-        }
+
+        }*/
     }
 
     private boolean isValid()
@@ -143,13 +144,18 @@ public class Popup extends FragmentActivity {
                 noMin = true;
             //This as well
             String[] datDate = date.getText().toString().split("/");
+              //System.out.println(date.toString());
 
             //Check that dif (number from 1-10) is in range
             if (Integer.parseInt(dif.getText().toString()) > 0 && Integer.parseInt(dif.getText().toString()) < 11) {
                 //Makes sure the title is at least length 1.
                 if (title.getText().toString().length() > 0) {
-                  //  if (noMin || (Integer.parseInt(datTime[0]) < 24 && Integer.parseInt(datTime[0]) >= 0 && Integer.parseInt(datTime[1]) < 60 && Integer.parseInt(datTime[1]) >= 0)) {
-                   // }
+                    if (noMin || (Integer.parseInt(datTime[0]) < 24 && Integer.parseInt(datTime[0]) >= 0 && Integer.parseInt(datTime[1]) < 60 && Integer.parseInt(datTime[1]) >= 0)) {
+                        //Don't need to check year I think
+                        if (Integer.parseInt(datDate[0]) > 0 && Integer.parseInt(datDate[0]) <= 12 && Integer.parseInt(datDate[1]) > 0 && Integer.parseInt(datDate[1]) <= 31) {
+                            return true;
+                        }
+                    }
                 }
             }
             return false;
@@ -189,17 +195,10 @@ public class Popup extends FragmentActivity {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear,
                               int dayOfMonth) {
-            // TODO Auto-generated method stub
-            // getCalender();
-            int mYear = year;
-            int mMonth = monthOfYear;
-            int mDay = dayOfMonth;
             date.setText(new StringBuilder()
                     // Month is 0 based so add 1
-                    .append(mDay).append("/").append(mMonth + 1).append("/")
-                    .append(mYear).append(" "));
-
-
+                    .append(monthOfYear + 1).append("/").append(dayOfMonth).append("/")
+                    .append(year).append(" "));
         }
     }
     class mTimeListener implements TimePickerDialog.OnTimeSetListener {
@@ -208,11 +207,15 @@ public class Popup extends FragmentActivity {
 
         @Override
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            int mhour = hourOfDay;
-            int mminute = minute;
-            time.setText(
-                    new StringBuilder().append(mhour)
-                            .append(":").append(mminute));
+
+            time.setText(new StringBuilder().append(pad(hourOfDay))
+                    .append(":").append(pad(minute)));
+        }
+        private  String pad(int c) {
+            if (c >= 10)
+                return String.valueOf(c);
+            else
+                return "0" + String.valueOf(c);
         }
     }
 }
