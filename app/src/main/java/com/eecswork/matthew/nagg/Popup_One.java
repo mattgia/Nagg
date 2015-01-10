@@ -34,8 +34,10 @@ public class Popup_One extends FragmentActivity {
     String time;
 
     TextView desc;
-    TextView start;
-    TextView end;
+    TextView from;
+    TextView to;
+    Button start;
+    Button end;
 
     CheckBox mon;
     CheckBox tues;
@@ -58,8 +60,11 @@ public class Popup_One extends FragmentActivity {
         Button c = ((Button) pw.getContentView().findViewById(R.id.busy_cancel));
 
         desc =(TextView) pw.getContentView().findViewById(R.id.busy_description);
-        start = (TextView) pw.getContentView().findViewById(R.id.busy_from);
-        end = (TextView) pw.getContentView().findViewById(R.id.busy_to);
+        from =(TextView) pw.getContentView().findViewById(R.id.busy_from);
+        to =(TextView) pw.getContentView().findViewById(R.id.busy_to);
+        start = (Button) pw.getContentView().findViewById(R.id.busy_bb_from);
+
+        end = (Button) pw.getContentView().findViewById(R.id.busy_bb_to);
 
         mon = (CheckBox) pw.getContentView().findViewById(R.id.busy_mon);
         tues = (CheckBox) pw.getContentView().findViewById(R.id.busy_tues);
@@ -71,7 +76,28 @@ public class Popup_One extends FragmentActivity {
 
 
 
-
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal = Calendar.getInstance();
+                int hour = cal.get(Calendar.HOUR);
+                int minute = cal.get(Calendar.MINUTE);
+                //showTimePickerDialog(v);
+                TimePickerDialog dialog = new TimePickerDialog(v.getContext(), new mTimeListener(),hour,minute, false);
+                dialog.show();
+            }
+        });
+        end.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal = Calendar.getInstance();
+                int hour = cal.get(Calendar.HOUR);
+                int minute = cal.get(Calendar.MINUTE);
+                //showTimePickerDialog(v);
+                TimePickerDialog dialog = new TimePickerDialog(v.getContext(), new mTimeListener2(),hour,minute, false);
+                dialog.show();
+            }
+        });
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,12 +153,45 @@ public class Popup_One extends FragmentActivity {
 
 
 
-            String daTime = start.getText().toString() + " to " + end.getText().toString();
+            String daTime = from.getText().toString() + " to " + to.getText().toString();
 
 
             Fragment_One.adapter.add(new BusyDays(desc.getText().toString().toUpperCase().toUpperCase(), x,daTime ));
             Fragment_Two.adapter.notifyDataSetChanged();
             pw.dismiss();
+        }
+    }
+    class mTimeListener implements TimePickerDialog.OnTimeSetListener {
+
+
+
+        @Override
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+
+            from.setText(new StringBuilder().append(pad(hourOfDay)).append(":").append(pad(minute)));
+        }
+        private  String pad(int c) {
+            if (c >= 10)
+                return String.valueOf(c);
+            else
+                return "0" + String.valueOf(c);
+        }
+    }
+
+    class mTimeListener2 implements TimePickerDialog.OnTimeSetListener {
+
+
+
+        @Override
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+
+            to.setText(new StringBuilder().append(pad(hourOfDay)).append(":").append(pad(minute)));
+        }
+        private  String pad(int c) {
+            if (c >= 10)
+                return String.valueOf(c);
+            else
+                return "0" + String.valueOf(c);
         }
     }
 }

@@ -120,17 +120,7 @@ public class Popup extends FragmentActivity {
             Fragment_Two.adapter.notifyDataSetChanged();
             pw.dismiss();
         }
-         /* else
-       {
 
-            Context context = Popup.this;
-            CharSequence text = "Hello toast!";
-            int duration = Toast.LENGTH_SHORT;
-
-            Toast toast = Toast.makeText(Popup.this, text, duration);
-            toast.show();
-
-        }*/
     }
 
     private boolean isValid()

@@ -105,20 +105,20 @@
         android:inputType="time"
         android:hint="HH:MM"/>
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="to"
-        android:id="@+id/textView5"
         android:layout_toEndOf="@+id/busy_description"
         android:layout_below="@+id/busy_from"
+        android:id="@+id/busy_bb_to"
         android:textSize="15dp" />
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="from"
-        android:id="@+id/textView6"
+        android:id="@+id/busy_bb_from"
         android:layout_above="@+id/busy_from"
         android:layout_toEndOf="@+id/busy_description"
         android:layout_marginBottom="34dp"
@@ -131,7 +131,6 @@
         android:text="CANCEL"
         android:id="@+id/busy_cancel"
         android:layout_toEndOf="@+id/linearLayout"
-        android:layout_alignTop="@+id/busy_ok_button"
-        android:layout_alignEnd="@+id/textView5" />
+        android:layout_alignTop="@+id/busy_ok_button"  />
 
 </RelativeLayout>
