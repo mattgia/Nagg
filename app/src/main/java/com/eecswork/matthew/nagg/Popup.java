@@ -15,12 +15,32 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.PopupWindow;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 import android.app.DatePickerDialog;
 import java.util.Calendar;
 import java.util.Date;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemSelectedListener;
+import java.util.ArrayList;
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemSelectedListener;
+
+import static android.R.layout.simple_spinner_item;
 
 /**
  * Created by Matthew on 12/4/2014.
@@ -33,30 +53,31 @@ public class Popup extends FragmentActivity {
     TextView time;
     TextView dif;
     PopupWindow pw;
-    public Popup(View rootView)
-    {
+    private Spinner spinner1;
+    private Button btnSubmit;
 
-
+    public Popup(View rootView)  {
 
 
         LayoutInflater inflater = (LayoutInflater) rootView.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         WindowManager wm = (WindowManager) rootView.getContext().getSystemService(Context.WINDOW_SERVICE);
         Display disp = wm.getDefaultDisplay();
 
-        pw = new PopupWindow(inflater.inflate(R.layout.hover_window, null, false),disp.getWidth()-160,disp.getHeight()-300, true);
+        pw = new PopupWindow(inflater.inflate(R.layout.hover_window, null, false), disp.getWidth() - 160, disp.getHeight() - 300, true);
         pw.showAtLocation(rootView.findViewById(R.id.important_list), Gravity.CENTER, 0, 0);
 
-        title =        ((TextView)pw.getContentView().findViewById(R.id.new_Title));
+        title = ((TextView) pw.getContentView().findViewById(R.id.new_Title));
 
-        date =         ((TextView)pw.getContentView().findViewById(R.id.new_Date_Text));
+        date = ((TextView) pw.getContentView().findViewById(R.id.new_Date_Text));
 
-        time =         ((TextView)pw.getContentView().findViewById(R.id.new_Time_Text));
+        time = ((TextView) pw.getContentView().findViewById(R.id.new_Time_Text));
 
-        dif =         ((TextView)pw.getContentView().findViewById(R.id.new_Dif_Text));
+        dif = ((Button) pw.getContentView().findViewById(R.id.picpriority));
 
 
-        Button b = ((Button)pw.getContentView().findViewById(R.id.ok_button));
-        Button c = ((Button)pw.getContentView().findViewById(R.id.cancel_butt));
+
+        Button b = ((Button) pw.getContentView().findViewById(R.id.ok_button));
+        Button c = ((Button) pw.getContentView().findViewById(R.id.cancel_butt));
 
 
         b.setOnClickListener(new View.OnClickListener() {
@@ -72,9 +93,31 @@ public class Popup extends FragmentActivity {
             }
         });
 
-        Button date_b = ((Button)pw.getContentView().findViewById(R.id.new_Date));
-        Button time_b =((Button)pw.getContentView().findViewById(R.id.new_Time));
-        Button dif_b = ((Button)pw.getContentView().findViewById(R.id.new_Dif));
+        Button date_b = ((Button) pw.getContentView().findViewById(R.id.new_Date));
+        Button time_b = ((Button) pw.getContentView().findViewById(R.id.new_Time));
+        spinner1 = ((Spinner) pw.getContentView().findViewById(R.id.spinner1));
+
+        spinner1.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+        List<String> categories = new ArrayList<String>();
+        categories.add("1");
+        categories.add("2");
+        categories.add("3");
+        categories.add("4");
+        categories.add("5");
+        categories.add("6");
+        categories.add("7");
+        categories.add("8");
+        categories.add("9");
+        categories.add("10");
+        // Creating adapter for spinner
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(spinner1.getContext(), android.R.layout.simple_spinner_item, categories);
+
+        // Drop down layout style - list view with radio button
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // attaching data adapter to spinner
+        spinner1.setAdapter(dataAdapter);
+
 
         date_b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,8 +127,8 @@ public class Popup extends FragmentActivity {
                 int mYear = cal.get(Calendar.YEAR);
                 int mMonth = cal.get(Calendar.MONTH);
                 int mDay = cal.get(Calendar.DAY_OF_MONTH);
-               // System.out.println("the selected " + mDay);
-                DatePickerDialog dialog = new DatePickerDialog(v.getContext(),new mDateSetListener(), mYear, mMonth, mDay);
+                // System.out.println("the selected " + mDay);
+                DatePickerDialog dialog = new DatePickerDialog(v.getContext(), new mDateSetListener(), mYear, mMonth, mDay);
                 dialog.show();
             }
         });
@@ -97,23 +140,15 @@ public class Popup extends FragmentActivity {
                 int hour = cal.get(Calendar.HOUR);
                 int minute = cal.get(Calendar.MINUTE);
                 //showTimePickerDialog(v);
-                TimePickerDialog dialog = new TimePickerDialog(v.getContext(), new mTimeListener(),hour,minute, false);
+                TimePickerDialog dialog = new TimePickerDialog(v.getContext(), new mTimeListener(), hour, minute, false);
                 dialog.show();
             }
         });
 
-        dif_b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //open dialog to prompt for a number between 1 and 10
-            }
-        });
 
     }
-    public void finish()
-    {
-        if(isValid()) {
+    public void finish() {
+        if (isValid()) {
 
             String zeDate = date.getText().toString();
             Fragment_Zero.adapter.add(new Event(zeDate, time.getText().toString(), title.getText().toString().toUpperCase(), Integer.parseInt(dif.getText().toString())));
@@ -123,18 +158,17 @@ public class Popup extends FragmentActivity {
 
     }
 
-    private boolean isValid()
-    {
+    private boolean isValid() {
         try {
             //Going to need this later.
             String[] datTime = time.getText().toString().split(":");
             boolean noMin = false;
             //Since Matt wants the user to be able to just put "1"
-            if(datTime.length == 1 && Integer.parseInt(datTime[0]) >=0 && Integer.parseInt(datTime[0]) < 24)
+            if (datTime.length == 1 && Integer.parseInt(datTime[0]) >= 0 && Integer.parseInt(datTime[0]) < 24)
                 noMin = true;
             //This as well
             String[] datDate = date.getText().toString().split("/");
-              //System.out.println(date.toString());
+            //System.out.println(date.toString());
 
             //Check that dif (number from 1-10) is in range
             if (Integer.parseInt(dif.getText().toString()) > 0 && Integer.parseInt(dif.getText().toString()) < 11) {
@@ -149,9 +183,7 @@ public class Popup extends FragmentActivity {
                 }
             }
             return false;
-        }
-        catch(NumberFormatException e)
-        {
+        } catch (NumberFormatException e) {
             return false;
         }
     }
@@ -180,6 +212,7 @@ public class Popup extends FragmentActivity {
             // Return to parent instance.
         }
     }
+
     class mDateSetListener implements DatePickerDialog.OnDateSetListener {
 
         @Override
@@ -191,8 +224,8 @@ public class Popup extends FragmentActivity {
                     .append(year).append(" "));
         }
     }
-    class mTimeListener implements TimePickerDialog.OnTimeSetListener {
 
+    class mTimeListener implements TimePickerDialog.OnTimeSetListener {
 
 
         @Override
@@ -201,11 +234,36 @@ public class Popup extends FragmentActivity {
             time.setText(new StringBuilder().append(pad(hourOfDay))
                     .append(":").append(pad(minute)));
         }
-        private  String pad(int c) {
+
+        private String pad(int c) {
             if (c >= 10)
                 return String.valueOf(c);
             else
                 return "0" + String.valueOf(c);
         }
     }
+    public class CustomOnItemSelectedListener implements OnItemSelectedListener {
+
+        public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
+       String item = parent.getItemAtPosition(pos).toString();
+
+            // Showing selected spinner item
+            Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> arg0) {
+            // TODO Auto-generated method stub
+        }
+
+    }
+
+
+
+
+
+
 }
+
+
+

@@ -36,10 +36,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/pick_num"
-        android:id="@+id/new_Dif"
-        android:layout_marginTop="25dp"
+        android:id="@+id/picpriority"
         android:layout_below="@+id/new_Time"
-        android:layout_alignStart="@+id/new_Time" />
+        android:layout_toEndOf="@+id/new_Date_Text" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -63,16 +62,14 @@
         android:layout_alignEnd="@+id/new_Date_Text"
         android:inputType="time" />
 
-    <EditText
+
+    <Spinner
+        android:id="@+id/spinner1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/new_Dif_Text"
-        android:hint="0-10"
-        android:layout_alignBottom="@+id/new_Dif"
-        android:layout_alignEnd="@+id/new_Time_Text"
-        android:inputType="number" />
 
+        android:layout_below="@+id/new_Time_Text"
+        android:layout_alignStart="@+id/new_Date_Text" />
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -87,9 +84,9 @@
         android:layout_height="wrap_content"
         android:text="OK"
         android:id="@+id/ok_button"
-        android:layout_toEndOf="@+id/new_Dif_Text"
+        android:layout_toEndOf="@+id/picpriority"
         android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/new_Dif" />
+        android:layout_alignEnd="@+id/picpriority" />
 
     <Button
         android:layout_width="wrap_content"
@@ -99,4 +96,12 @@
         android:layout_toStartOf="@+id/busybox"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:layout_alignTop="@+id/picpriority"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="468dp" />
 </RelativeLayout>

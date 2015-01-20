@@ -47,6 +47,7 @@ public class Popup_One extends FragmentActivity {
     CheckBox sat;
     CheckBox sun;
 
+
     public Popup_One(View rootView) {
         LayoutInflater inflater = (LayoutInflater) rootView.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         WindowManager wm = (WindowManager) rootView.getContext().getSystemService(Context.WINDOW_SERVICE);
