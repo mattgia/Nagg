@@ -12,5 +12,14 @@
     <string name="pick_time">Pick Time</string>
     <string name="pick_date">Pick Date</string>
     <string name="pick_num">Pick Priority</string>
-
+    <string-array name="PA">
+        <item>Malaysia</item>
+        <item>United States</item>
+        <item>Indonesia</item>
+        <item>France</item>
+        <item>Italy</item>
+        <item>Singapore</item>
+        <item>New Zealand</item>
+        <item>India</item>
+    </string-array>
 </resources>

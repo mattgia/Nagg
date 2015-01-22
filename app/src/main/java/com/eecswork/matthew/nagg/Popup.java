@@ -51,7 +51,7 @@ public class Popup extends FragmentActivity {
     TextView title;
     TextView date;
     TextView time;
-    TextView dif;
+    TextView priority;
     PopupWindow pw;
     private Spinner spinner1;
     private Button btnSubmit;
@@ -72,7 +72,7 @@ public class Popup extends FragmentActivity {
 
         time = ((TextView) pw.getContentView().findViewById(R.id.new_Time_Text));
 
-        dif = ((Button) pw.getContentView().findViewById(R.id.picpriority));
+        priority = ((TextView) pw.getContentView().findViewById(R.id.new_Dif_Text));
 
 
 
@@ -95,28 +95,6 @@ public class Popup extends FragmentActivity {
 
         Button date_b = ((Button) pw.getContentView().findViewById(R.id.new_Date));
         Button time_b = ((Button) pw.getContentView().findViewById(R.id.new_Time));
-        spinner1 = ((Spinner) pw.getContentView().findViewById(R.id.spinner1));
-
-        spinner1.setOnItemSelectedListener(new CustomOnItemSelectedListener());
-        List<String> categories = new ArrayList<String>();
-        categories.add("1");
-        categories.add("2");
-        categories.add("3");
-        categories.add("4");
-        categories.add("5");
-        categories.add("6");
-        categories.add("7");
-        categories.add("8");
-        categories.add("9");
-        categories.add("10");
-        // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(spinner1.getContext(), android.R.layout.simple_spinner_item, categories);
-
-        // Drop down layout style - list view with radio button
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // attaching data adapter to spinner
-        spinner1.setAdapter(dataAdapter);
 
 
         date_b.setOnClickListener(new View.OnClickListener() {
@@ -151,7 +129,7 @@ public class Popup extends FragmentActivity {
         if (isValid()) {
 
             String zeDate = date.getText().toString();
-            Fragment_Zero.adapter.add(new Event(zeDate, time.getText().toString(), title.getText().toString().toUpperCase(), Integer.parseInt(dif.getText().toString())));
+            Fragment_Zero.adapter.add(new Event(zeDate, time.getText().toString(), title.getText().toString().toUpperCase(), Integer.parseInt(priority.getText().toString())));
             Fragment_Two.adapter.notifyDataSetChanged();
             pw.dismiss();
         }
@@ -171,7 +149,7 @@ public class Popup extends FragmentActivity {
             //System.out.println(date.toString());
 
             //Check that dif (number from 1-10) is in range
-            if (Integer.parseInt(dif.getText().toString()) > 0 && Integer.parseInt(dif.getText().toString()) < 11) {
+            if (Integer.parseInt(priority.getText().toString()) > 0 && Integer.parseInt(priority.getText().toString()) < 11) {
                 //Makes sure the title is at least length 1.
                 if (title.getText().toString().length() > 0) {
                     if (noMin || (Integer.parseInt(datTime[0]) < 24 && Integer.parseInt(datTime[0]) >= 0 && Integer.parseInt(datTime[1]) < 60 && Integer.parseInt(datTime[1]) >= 0)) {
@@ -245,7 +223,7 @@ public class Popup extends FragmentActivity {
     public class CustomOnItemSelectedListener implements OnItemSelectedListener {
 
         public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
-       String item = parent.getItemAtPosition(pos).toString();
+            String item = parent.getItemAtPosition(pos).toString();
 
             // Showing selected spinner item
             Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
@@ -264,6 +242,5 @@ public class Popup extends FragmentActivity {
 
 
 }
-
 
 
